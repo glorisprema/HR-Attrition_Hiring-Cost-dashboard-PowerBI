@@ -1,38 +1,64 @@
 # HR Attrition & Hiring Cost Dashboard | Power BI
 
-## 📊 Overview
-Analyzed 185 employees to track attrition patterns and the business cost of employee turnover. 
-Dashboard shows $600K total hiring cost to replace 40 employees.
+## Overview
+Power BI dashboard built to monitor employee attrition and hiring costs. Helps HR teams understand why employees leave and where to improve retention.
 
-## 🎯 Business Problem
-HR needed answers:
-- How many employees left and what is the attrition rate?
-- Which department has highest attrition?
-- Which recruitment source fails most?
-- Why are people leaving?
-- What is the total hiring cost?
+Built for HR Analytics portfolio - Hamilton / GTA hiring.
 
-## 💡 Key Insights
-- **Total Employees:** 185 | **Active:** 145 | **Attrition:** 40 (22%)
-- **Total Hiring Cost:** $600K (Avg $15K per replacement)
-- **Highest Attrition Department:** Sales (14) > Finance (12)
-- **Top Recruitment Source for Attrition:** LinkedIn (30%)
-- **Top Reason for Leaving:** Better Salary (12)
+## KPIs - Executive Summary
+- **Total Employees: 185**
+- **Active Employees: 145**
+- **Attrition Count: 40**
+- **Attrition Rate: 22%**
+- **Total Hiring Cost: $600K**
 
-## 🛠️ Tools Used
-- Power BI Desktop
-- DAX (Measures for Attrition Rate, Total Hiring Cost)
-- Data Modeling (Dim_Employee, Fact_Attrition)
+## Key Insights
+- **Attrition Rate is 22% (40 out of 185)** - High risk area for HR
+- **Sales department has highest attrition** - Followed by Finance and Operations
+- **Top Reason for Leaving: Better Salary (15 cases)** - Compensation review needed
+- **Manager Issue is #2 reason (8 cases)** - Leadership training required
+- **Attrition by Recruitment Source:** Campus and Indeed have higher attrition vs Referral and LinkedIn - Review hiring quality
+- **Work-Life Balance, Relocation, Health Issues** also contribute
 
-## 📸 Dashboard
+## Visuals
+- **KPI Cards (Top):** Total Employees 185, Active 145, Attrition 40, Rate 22%, Cost $600K
+- **Attrition by Department:** Bar chart - Sales highest, HR lowest
+- **Attrition by Recruitment Source:** Donut chart (40 total) - Breakdown by LinkedIn, Referral, Campus, Indeed
+- **Reason for Leaving:** Horizontal bar chart - Better Salary (15), Manager Issue (8), Career Growth (7), Work-Life Balance (4), Relocation (4), Health Issue (2)
 
-![Dashboard](HR_Dashboard.png)
+## Tools & DAX Used
+- **Power BI Desktop**
+- **DAX Measures:**
+    - `Total_Employees = COUNT(EmployeeID)`
+    - `Attrition_Count = COUNTROWS(FILTER(HR_Table, Attrition="Yes"))`
+    - `Attrition_Rate = DIVIDE([Attrition_Count], [Total_Employees])`
+    - `Total_Hiring_Cost = SUM(Hiring_Cost)`
+    - `Active_Employees = [Total_Employees] - [Attrition_Count]`
+- **Data Source:** HR Analytics dataset (185 employees)
+- **Data Cleaning:** Power Query
 
-## 📂 Files
-- HR_Analytics.pbix - Power BI file
-- HR_Dashboard.png - Dashboard screenshot
+## Files
+- `HR_Analytics.pbix` - Main Power BI file
+- `HR Attrition and Hiring Cost.png` - Dashboard screenshot
 
-## 🔧 Measures Created
-- Attrition Count = COUNT(Fact_Attrition)
-- Attrition Rate = Attrition / Total Employees
-- Total Hiring Cost = SUM(ReplacementCost)
+## Business Impact
+This dashboard helps HR reduce $600K hiring cost by focusing on:
+1. **Retaining Sales team** - Highest attrition department
+2. **Reviewing Salary Structure** - #1 reason for leaving
+3. **Manager Training** - #2 reason for leaving
+4. **Improving Recruitment Source Quality** - Campus/Indeed vs Referral
+
+Potential saving: Reduce attrition from 22% to 15% = Save ~$180K in hiring costs.
+
+## Author
+**Gloris Prema - Aspiring Data Analyst | Hamilton, ON**
+- Focus: HR Analytics, Power BI, Workforce Planning
+
+## Dashboard - HR Attrition & Hiring Cost
+![HR Attrition Dashboard](HR%20Attrition%20and%20Hiring%20Cost.png)
+
+## How It Works
+Dashboard tracks attrition by department, recruitment source, and reason for leaving. Helps HR prioritize retention strategies and reduce hiring costs.
+
+## Project Link
+https://github.com/glorisprema/HR-Attrition_Hiring-Cost-dashboard-PowerBI
